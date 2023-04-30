@@ -85,12 +85,14 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/resume"
+                to="services"
+                spy={true} smooth={true}
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Services
               </Nav.Link>
             </Nav.Item>
+              
 
             <Nav.Item>
               <Nav.Link

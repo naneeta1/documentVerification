@@ -17,7 +17,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import issueCertificate from "./components/Home/issueCertificate";
+import IssueCertificate from "./components/Home/issueCertificate";
 import ScanCertificate from "./components/Home/ScanCertificate";
 import GenerateNFT from "./components/Home/GenerateNFT";
 import RewardingTokens from "./components/Tokens/Tokens";
@@ -44,7 +44,7 @@ function App() {
           <Route path="/tokens" element={<RewardingTokens />} />
           <Route path="/about" element={<About />} />
           <Route path="/history" element={<History />} />
-          <Route exact path="/issue-certificate" element={<issueCertificate />} />
+          <Route exact path="/issue-certificate" element={<IssueCertificate />} />
           <Route exact path="/scan-certificate" element={<ScanCertificate />} />
           <Route exact path="/Generate-NFT" element={<GenerateNFT />} />
           {/* <Route path="/resume" element={<Resume />} /> */}

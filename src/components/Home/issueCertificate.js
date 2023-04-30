@@ -1,88 +1,103 @@
 import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import homeLogo from "../../Assets/home-main.svg";
+import Particle from "../Particle";
+import OurServices from "./OurServices";
 
-
-function issueCertificate() {
+function IssueCertificate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("Your Digital Signature has been created.");
   };
 
   return (
-    <div>
-      <div className="col-md-12 p-2 bg-dark text-center text-light">
-        <navbar>
-          <h1>Generate Your Digital Certificates</h1>
-        </navbar>
-      </div>
+    <section>
+      <Container fluid className="home-section" id="home">
+        <Particle />
+        </Container>
+        <Container className="home-content">
+          <Row>
+            <Col md={7} className="home-header">
+              <h1 style={{ paddingBottom: 10 }} className="heading">
+                Generate Your Digital Certificates{" "}
+              </h1>
 
-      <h3
-        className="title"
-        style={{
-          backgroundColor: "darkcyan",
-          marginBottom: "20px",
-          color: "aliceblue",
-          textAlign: "center",
-          padding: "10px",
-        }}
-      >
-        Generate a digital certificate, You will be notified on Blockchain platform
-      </h3>
-
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="fname">First Name</label>
-          <input
-            type="text"
-            id="fname"
-            name="firstname"
-            placeholder="Your name.."
-          />
-
-          <label htmlFor="program">Program</label>
-          <input
-            type="text"
-            id="program"
-            name="program"
-            placeholder="Your Program.."
-          />
-
-          <label htmlFor="Snum">Serial Number</label>
-          <input
-            type="text"
-            id="Snum"
-            name="Snum"
-            placeholder="Your Serial Number.."
-          />
-
-          <label htmlFor="ins">Institute</label>
-          <input
-            type="text"
-            id="ins"
-            name="ins"
-            placeholder="Your Institute.."
-          />
-
-          <input
-            style={{
-              marginLeft: "34%",
-              marginRight: "30%",
-              width: "30%",
-              padding: "5px",
-              height: "30px",
-              border: "none",
-              fontWeight: "600",
-              color: "aliceblue",
-              backgroundColor: "darkcyan",
-              borderRadius: "10px",
-            }}
-            id="submitForm"
-            type="submit"
-            value="Generate"
-          />
-        </form>
-      </div>
-    </div>
+              <div className="form-container" >
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="fname">First Name</label>
+                    <input
+                      type="text"
+                      id="fname"
+                      name="firstname"
+                      placeholder="Your name.."
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="program">Program</label>
+                    <input
+                      type="text"
+                      id="program"
+                      name="program"
+                      placeholder="Your Program.."
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Snum">Serial Number</label>
+                    <input
+                      type="text"
+                      id="Snum"
+                      name="Snum"
+                      placeholder="Your Serial Number.."
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group" style={{  marginBottom: '20px'}}>
+                    <label htmlFor="ins">Institute</label>
+                    <input
+                      type="text"
+                      id="ins"
+                      name="ins"
+                      placeholder="Your Institute.."
+                      className="form-control"
+                    />
+                  </div>
+                  <Button
+                    id="submitForm"
+                    type="submit"
+                    value="Generate"
+                    className="btn btn-primary"
+                  >
+                    Generate
+                  </Button>
+                </form>
+              </div>
+            </Col>
+            <Col md={5} style={{ paddingBottom: 20 }}>
+              <img
+                src={homeLogo}
+                alt="home pic"
+                className="img-fluid"
+                style={{ maxHeight: "450px" }}
+              />
+            </Col>
+          </Row>
+        </Container>
+      
+ 
+    </section>
   );
 }
 
-export default issueCertificate;
+export default IssueCertificate;
+
+// CSS styles
+
+
+
+
+
+
+

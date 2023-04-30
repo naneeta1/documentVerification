@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Container, Row, Col, Button } from "react-bootstrap";
+import homeLogo from "../../Assets/home-main.svg";
+import Particle from "../Particle";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function RewardingTokens() {
@@ -22,10 +26,19 @@ function RewardingTokens() {
     event.preventDefault();
     console.log(`Total: ${total}, Scanning Earn: ${scanningEarn}, Digital Earn: ${digitalEarn}`);
   };
-
+ 
   return (
-    <div className="container">
-      <h1 className="title">TOKEN REWARDS</h1>
+    <section>
+      <Container fluid className="home-section" id="home">
+        <Particle />
+        </Container>
+        <Container className="home-content">
+          <Row>
+            <Col md={7} className="home-header">
+              <h1 style={{ paddingBottom: 10 }} className="heading">
+              Generate Token{" "}
+              </h1>
+              <div className="container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="total">Total:</label>
         <input
@@ -54,10 +67,37 @@ function RewardingTokens() {
           onChange={handleDigitalEarnChange}
         />
 
-        <button type="submit">Submit</button>
+        <Button type="submit" style={{marginTop:'20px', marginLeft:'250px'}}>Submit</Button>
       </form>
     </div>
+
+    
+            </Col>
+            <Col md={5} style={{ paddingBottom: 20 }}>
+              <img
+                src={homeLogo}
+                alt="home pic"
+                className="img-fluid"
+                style={{ maxHeight: "450px" }}
+              />
+            </Col>
+          </Row>
+        </Container>
+      
+ 
+    </section>
   );
 }
 
 export default RewardingTokens;
+
+
+
+
+
+
+
+
+
+
+

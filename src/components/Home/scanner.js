@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Button } from "react-bootstrap";
+import { useRef } from "react";
 
 function Scanner() {
   const [imgPreview, setImgPreview] = useState("");
-
+  const fileInputRef = useRef();
   const handlePhotoChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -16,62 +15,24 @@ function Scanner() {
       reader.readAsDataURL(file);
     }
   };
+  const handleFileInputClick = () => {
+    fileInputRef.current.click();
+  };
 
   return (
-    <>
-      <div className="col-md-12 p-2 bg-dark text-center text-light">
-        <navbar>
-          <h1>Scan Your Certificates</h1>
-        </navbar>
+    <div style={{marginBottom:'150px'}}>
+      <div className="holder" style={{width:'250px', height:'200px', marginLeft:'100px' ,border:'2px solid purple', marginBottom:'30px'}}>
+        <img id="imgPreview" src={imgPreview} alt="pic" style={{width:'400px', height:'400px'}}/>
       </div>
-      <h3
-        className="title"
-        style={{
-          backgroundColor: "darkcyan",
-          marginBottom: "20px",
-          color: "aliceblue",
-          textAlign: "center",
-          padding: "10px",
-        }}
-      >
-        Choose a picture Or Take a picture for Authentication
-      </h3>
-      <form>
-        <div className="holder">
-          <img id="imgPreview" src={imgPreview} alt="pic" />
-        </div>
-        <input
+      <Button onClick={handleFileInputClick} style={{marginLeft:'170px'}}>Select file</Button>
+      <input
+          ref={fileInputRef}
           type="file"
-          name="photograph"
-          id="photo"
-          required={true}
+        
           onChange={handlePhotoChange}
+          style={{ display: "none" }}
         />
-      </form>
-      <style>
-        {`
-          .holder {
-            height: 300px;
-            width: 300px;
-            border: 2px solid black;
-          }
-          img {
-            max-width: 300px;
-            max-height: 300px;
-            min-width: 300px;
-            min-height: 300px;
-          }
-          input[type="file"] {
-            margin-top: 5px;
-          }
-          .heading {
-            font-family: Montserrat;
-            font-size: 45px;
-            color: green;
-          }
-        `}
-      </style>
-    </>
+    </div>
   );
 }
 
